@@ -7,21 +7,7 @@ import Link from "next/link";
 import CountryController from "~/src/Utils/Controllers/CountryController";
 import {useRef} from "react";
 
-const animationVariant = {
-    hidden: {
-        opacity: 0,
-        x: 100
-    },
-    show: {
-        opacity: 1,
-        x: 0
-    },
-    exit: {
-        opacity: 0,
-        x: 100
-    },
 
-}
 const container = {
     hidden: {opacity: 0},
     show: {
@@ -79,39 +65,8 @@ const CountryList = async  () => {
     return (
         <>
             {
-                countries?.map((country, index) => (
-                    <motion.div
-                exit={{
-                    opacity: 0,
-                    x: 100
-                }}
-                transition={{
-                    delay:Math.min(index,12) * 0.05
-                }}
-                key={country.name.official} variants={animationVariant}
-            >
-                        {country.name.official}
-                    </motion.div>
-                    // <Grid xs={12} md={4} lg={3} item container justifyContent="center" key={country.cca2}>
-                    //     <Link  href={`/country/${country.cca2}`}>
-                    //         {/*<motion.div*/}
-                    //         {/*    exit={{*/}
-                    //         {/*        opacity: 0,*/}
-                    //         {/*        x: 100*/}
-                    //         {/*    }}*/}
-                    //         {/*    transition={{*/}
-                    //         {/*        delay:Math.min(index,12) * 0.05*/}
-                    //         {/*    }}*/}
-                    //         {/*    key={country.name.official} variants={animationVariant}*/}
-                    //         {/*>*/}
-                    //
-                    //             <CountryCard info={country}/>
-                    //         {/*</motion.div>*/}
-                    //     </Link>
-                    // </Grid>
-                ))
+                countries?.map((country, index) => (<CountryCard key={country.cca2} info={country}/>))
             }
-            asdf
         {/*{*/}
         {/*    data &&*/}
         {/*    <SearchBar initialData={data} handleFilterList={handleFilterList} />*/}
